@@ -24,6 +24,10 @@ class CollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    var imageView: UIImageView = UIImageView()
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -36,6 +40,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     private func setup() {
         contentView.addSubview(titleLabel)
+        contentView.addSubview(imageView)
     }
 
     private func layout() {
@@ -45,6 +50,19 @@ class CollectionViewCell: UICollectionViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 1),
             titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 1)
         ])
+        
+        
+        imageView.image = UIImage(systemName: "scribble")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 1),
+            imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 1),
+            imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 1),
+            imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 1)
+        ])
+
     }
     
 }
@@ -57,6 +75,10 @@ extension CollectionViewCell {
     func doUpdateText(text: String) {
         self.titleLabel.text = text
     }
+    func doUpdateImage(image: UIImage) {
+        self.imageView.image = image
+    }
+
 }
 
 
