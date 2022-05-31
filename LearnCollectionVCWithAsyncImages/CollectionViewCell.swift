@@ -57,7 +57,7 @@ class CollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 1),
+            titleLabel.bottomAnchor.constraint(equalTo: self.imageView.topAnchor, constant: 2),
             imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 1),
             imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 1),
             imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 1)

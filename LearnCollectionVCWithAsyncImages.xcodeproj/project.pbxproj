@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46143F312846BE4E007ABF55 /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46143F302846BE4E007ABF55 /* Network Manager.swift */; };
 		4667A4F328465441000AFB4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667A4F228465441000AFB4C /* AppDelegate.swift */; };
 		4667A4F528465441000AFB4C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667A4F428465441000AFB4C /* CollectionViewController.swift */; };
 		4667A4F728465441000AFB4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667A4F628465441000AFB4C /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46143F302846BE4E007ABF55 /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
 		4667A4EF28465441000AFB4C /* LearnCollectionVCWithAsyncImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnCollectionVCWithAsyncImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4667A4F228465441000AFB4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4667A4F428465441000AFB4C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46143F2D2846BDA5007ABF55 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				4667A4F628465441000AFB4C /* ContentView.swift */,
+				4667A4F228465441000AFB4C /* AppDelegate.swift */,
+				4667A4F828465443000AFB4C /* Assets.xcassets */,
+				4667A4FA28465443000AFB4C /* LaunchScreen.storyboard */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		46143F2E2846BDF0007ABF55 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4667A50628466AE5000AFB4C /* ResponsePosts.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		46143F2F2846BE0B007ABF55 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4667A504284655F1000AFB4C /* UIView+Ext.swift */,
+				46143F302846BE4E007ABF55 /* Network Manager.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		4667A4E628465441000AFB4C = {
 			isa = PBXGroup;
 			children = (
@@ -59,14 +89,11 @@
 		4667A4F128465441000AFB4C /* LearnCollectionVCWithAsyncImages */ = {
 			isa = PBXGroup;
 			children = (
-				4667A4F228465441000AFB4C /* AppDelegate.swift */,
 				4667A4F428465441000AFB4C /* CollectionViewController.swift */,
-				4667A50628466AE5000AFB4C /* ResponsePosts.swift */,
-				4667A504284655F1000AFB4C /* UIView+Ext.swift */,
 				4667A502284655AD000AFB4C /* CollectionViewCell.swift */,
-				4667A4F628465441000AFB4C /* ContentView.swift */,
-				4667A4F828465443000AFB4C /* Assets.xcassets */,
-				4667A4FA28465443000AFB4C /* LaunchScreen.storyboard */,
+				46143F2E2846BDF0007ABF55 /* Models */,
+				46143F2F2846BE0B007ABF55 /* Utilities */,
+				46143F2D2846BDA5007ABF55 /* Files */,
 			);
 			path = LearnCollectionVCWithAsyncImages;
 			sourceTree = "<group>";
@@ -141,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46143F312846BE4E007ABF55 /* Network Manager.swift in Sources */,
 				4667A50728466AE5000AFB4C /* ResponsePosts.swift in Sources */,
 				4667A4F528465441000AFB4C /* CollectionViewController.swift in Sources */,
 				4667A4F328465441000AFB4C /* AppDelegate.swift in Sources */,

@@ -8,6 +8,9 @@
 import UIKit
 
 final class CollectionViewController: UIViewController {
+    
+    var gettingDataManager: GettingDataManager
+    
 
     var apiResponse = APIResponse()
     
@@ -15,10 +18,18 @@ final class CollectionViewController: UIViewController {
 
     var collectionView: UICollectionView!
     
-
+    init(gettingDataManager: GettingDataManager) {
+        self.gettingDataManager = gettingDataManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         setupView()
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: String(describing:CollectionViewCell.self))
         collectionView.alwaysBounceVertical = true
@@ -80,22 +91,17 @@ extension CollectionViewController: UICollectionViewDataSource {
         
         cell.doUpdate(color: dataItem)
         cell.doUpdateText(text: description)
-        getTheImage(url: imageURL) { result in
+        gettingDataManager.getTheImage(url: imageURL) { result in
             switch result {
             case .success(let image):
                 print("it was a success")
                 DispatchQueue.main.async {
                     cell.doUpdateImage(image: image)
                 }
-            
             case .failure(let err):
                 print("it was an error")
             }
         }
-        
-        
-        
-        
         return cell
     }
     
@@ -109,14 +115,14 @@ extension CollectionViewController {
     
         let accessKey = "bbc33cc9f86e189e1387e31a57dbd74a2dba4a5f4540f7a0dbcb599fd72f61f2"
         
-        guard let theURL = URL(string: "https://api.unsplash.com/search/photos?query=puppies") else {
+        guard let theURL = URL(string: "https://api.unsplash.com/search/photos?query=kittens") else {
             fatalError("error converting url")
         }
         
         var req = URLRequest(url: theURL)
         req.addValue("Client-ID \(accessKey)", forHTTPHeaderField: "Authorization")
 
-        let task = URLSession.shared.dataTask(with: req) {  data, response, error in
+        let task = URLSession.shared.dataTask(with: req) {  [weak self] data, response, error in
             
             if error != nil {
                 print("there was an error")
@@ -136,13 +142,13 @@ extension CollectionViewController {
             print(" in \(#function) at line \(#line)")
             do {
                 let xxxx = try JSONDecoder().decode(APIResponse.self, from: data)
-                self.apiResponse = xxxx
+                self?.apiResponse = xxxx
                 print(" in \(#function) at line \(#line)")
-                self.apiResponse.results.forEach { item in
+                self?.apiResponse.results.forEach { item in
                     print(item.urls.regular)
                 }
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+                    self?.collectionView.reloadData()
                 }
 
             } catch let error {
@@ -156,15 +162,9 @@ extension CollectionViewController {
 
     
     fileprivate func getTheImage(url: String, doThisWhenFinished completion:@escaping (Result<UIImage,Error>) -> Void) -> Void {
-        
         print("--- in \(#function) at line \(#line)")
         
-        guard let theURL = URL(string: url) else {
-            fatalError("error converting url")
-        }
-        
-//        var req = URLRequest(url: theURL)
-//        req.addValue("Client-ID \(accessKey)", forHTTPHeaderField: "Authorization")
+        guard let theURL = URL(string: url) else { fatalError("error converting url") }
 
         let task = URLSession.shared.dataTask(with: theURL) { data, response, error in
            
