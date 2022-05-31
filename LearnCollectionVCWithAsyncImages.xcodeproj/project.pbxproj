@@ -14,6 +14,7 @@
 		4667A4FC28465443000AFB4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4667A4FA28465443000AFB4C /* LaunchScreen.storyboard */; };
 		4667A503284655AD000AFB4C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667A502284655AD000AFB4C /* CollectionViewCell.swift */; };
 		4667A505284655F1000AFB4C /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667A504284655F1000AFB4C /* UIView+Ext.swift */; };
+		4667A50728466AE5000AFB4C /* ResponsePosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667A50628466AE5000AFB4C /* ResponsePosts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4667A4FB28465443000AFB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4667A502284655AD000AFB4C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4667A504284655F1000AFB4C /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		4667A50628466AE5000AFB4C /* ResponsePosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePosts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				4667A4F228465441000AFB4C /* AppDelegate.swift */,
 				4667A4F428465441000AFB4C /* CollectionViewController.swift */,
+				4667A50628466AE5000AFB4C /* ResponsePosts.swift */,
 				4667A504284655F1000AFB4C /* UIView+Ext.swift */,
 				4667A502284655AD000AFB4C /* CollectionViewCell.swift */,
 				4667A4F628465441000AFB4C /* ContentView.swift */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4667A50728466AE5000AFB4C /* ResponsePosts.swift in Sources */,
 				4667A4F528465441000AFB4C /* CollectionViewController.swift in Sources */,
 				4667A4F328465441000AFB4C /* AppDelegate.swift in Sources */,
 				4667A505284655F1000AFB4C /* UIView+Ext.swift in Sources */,

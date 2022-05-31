@@ -7,57 +7,30 @@
 
 import UIKit
 
-struct PostUserProfileImage: Codable {
-  let medium: String
-}
-
-struct PostUser: Codable {
-  let profile_image: PostUserProfileImage
-}
-
-struct PostUrls: Codable {
-  let regular: String
-}
-
-struct Post: Codable {
-  let id: String
-  let description: String?
-  let user: PostUser
-  let urls: PostUrls
-}
-
- struct APIResponse: Codable {
-  let results: [Post]?
-}
-
 final class CollectionViewController: UIViewController {
 
-    var apiResponse = APIResponse(results: [])
+    var apiResponse = APIResponse()
     
     var data = [UIColor.red, UIColor.green, UIColor.blue, UIColor.green, UIColor.purple, UIColor.orange, UIColor.blue, UIColor.green, UIColor.blue, UIColor.green, UIColor.red, UIColor.green, UIColor.blue, UIColor.green, UIColor.purple, UIColor.orange, UIColor.blue, UIColor.green, UIColor.blue, UIColor.green, UIColor.red, UIColor.green, UIColor.blue, UIColor.green, UIColor.purple, UIColor.orange, UIColor.blue, UIColor.green, UIColor.blue, UIColor.green, UIColor.red, UIColor.green, UIColor.blue, UIColor.green, UIColor.purple, UIColor.orange, UIColor.blue, UIColor.green, UIColor.blue, UIColor.green]
-    
 
     var collectionView: UICollectionView!
-    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
-        
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: String(describing:CollectionViewCell.self))
-        
         collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = .white
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
 
-
         getTheData()
     }
     private func setupView() {
+
         setUpFlowAndCollectionView()
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +64,7 @@ extension CollectionViewController: UICollectionViewDelegate {
 
 extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        apiResponse.results?.count ?? 0
+        apiResponse.results.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,7 +74,7 @@ extension CollectionViewController: UICollectionViewDataSource {
             fatalError("could not dequeu it ")
         }
         let dataItem = data[indexPath.item]
-        guard let post = apiResponse.results?[indexPath.item]else { fatalError("nothing doing")}
+        let post = apiResponse.results[indexPath.item]
         let description = post.description ?? "No text retreived"
         
         
@@ -117,7 +90,7 @@ extension CollectionViewController {
     
     fileprivate func getTheData() {
         
-        print(" in \(#function) at line \(#line)")
+        print("--- in \(#function) at line \(#line)")
     
         let accessKey = "bbc33cc9f86e189e1387e31a57dbd74a2dba4a5f4540f7a0dbcb599fd72f61f2"
         
@@ -144,7 +117,7 @@ extension CollectionViewController {
             guard let data = data else {
                 fatalError("data not retreived")
             }
-            print(String(decoding: data, as: UTF8.self))
+//             print(String(decoding: data, as: UTF8.self))
              //do the decoding from here
             print(" in \(#function) at line \(#line)")
             do {
