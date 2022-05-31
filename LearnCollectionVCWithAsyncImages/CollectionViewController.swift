@@ -113,11 +113,10 @@ extension CollectionViewController {
               return
             }
 
-            
             guard let data = data else {
                 fatalError("data not retreived")
             }
-//             print(String(decoding: data, as: UTF8.self))
+            
              //do the decoding from here
             print(" in \(#function) at line \(#line)")
             do {
@@ -127,10 +126,7 @@ extension CollectionViewController {
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-//                self.apiResponse.results.forEach {
-//                    print($0.description as Any)
-//
-//                }
+
             } catch let error {
                 print("error decoding the response \(error)")
             }
